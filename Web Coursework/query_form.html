@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="querystyle.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" id="themeStylesheetLink" href="themes/light.css">
+    <title>Query Form</title>
+</head>
+
+<body>
+
+
+                        <!--common header/navigation bar codes-->
+
+ <div class="header">
+     <nav>
+         <div class="logo">Emerald <b style="color:orangered;">S</b>tore</div>
+         <div class="search_box">
+             <input type="search" placeholder="What are looking for?">
+             <span class="material-icons-outlined">search</span>
+         </div>
+         <ul>
+             <li><a href="index.html">Home</a></li>
+             <li><a href="">Product</a></li>
+             <li><a href="query_form.html">Queries</a></li>
+             <li><a href="">Site Map</a></li>
+             <li><a href="">Gallery</a></li>
+             <li><a href="">About Us</a></li>
+             <li><a href="">Quiz</a></li>
+             <li><a href="content.html">Content</a></li>
+         </ul>
+     </nav>
+ </div>
+ 
+                            <!-- start of the form section-->
+
+<div class="container" id="container">
+    <h1>GET IN TOUCH</h1>
+    <p>Any queries ?
+        Drop us a message</p>
+    <form action="mailto:ahamed.20200842@iit.ac.lk" method="get" name="emailForm" class="form" id="form">
+        <div class="row">
+            <div class="column">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Enter your name here" name="name">
+                <small>Error message</small>
+            </div>
+            <div class="column">
+                <label for="email">Email</label>
+                <input type="text" id="email" placeholder="Enter your email here" name="email">
+                <small>Error message</small>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <label for="subject">Subject</label>
+                <select name="subject" id="subject">
+                    <option value="Delivery">Delivery</option>
+                    <option value="Product">Product</option>
+                    <option value="Packaging">Packaging</option>
+                </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <label for="issues">Describe your query</label>
+                <textarea name="query_details" id="issues" placeholder="Type your query here" rows="3"></textarea>
+                <small>Error message</small>
+            </div>
+        </div>
+        <button id="viewbtn">View Query</button>
+    </form>
+</div>
+
+                        <!--form confirmation section-->
+
+<div class="formConfirmation">
+    <h1>Confirmation</h1>
+    <h3>Name:</h3><label id="confirmName"></label>
+    <h3>Email:</h3><label id="confirmEmail"></label>
+    <h3>Subject:</h3><label id="confirmSubject"></label>
+    <h3>Query Details:</h3><p id="confirmQuery"></p>
+    <div class="btn"><button class="edit" onclick="getForm();">Edit</button>
+        <button class="send" form="form" onclick= "document.location =  'mailto:ahamed.20200842@iit.ac.lk'">Send</button>
+    </div>
+</div>
+
+                            <!--theme selector section-->
+                            
+<div class="themes">    
+    <select id="themeSelect">
+      <option value="light">Light</option>
+      <option value="dark">Dark</option>
+    </select>
+</div>
+<div class="footer">
+    <div class="editor-page"><a href="page-editor.html"><h3><b style="color: orangered">E</b>ditors <b style="color: orangered">P</b>age</h3></a></div>
+</div>
+
+                        <!--start of java script-->
+<script>
+    
+    //theme selector//
+    function initThemeSelector(){
+        const themeSelect = document.getElementById("themeSelect");
+        const themeStylesheetLink = document.getElementById("themeStylesheetLink");
+        
+        //grabbing the theme css fiiles and chnaging it according to the user selection//
+        function activateTheme(themeName){
+            themeStylesheetLink.setAttribute("href", `themes/${themeName}.css`);
+        }
+        //adding a event listener to selec tag//
+        themeSelect.addEventListener("change", () =>{
+            activateTheme(themeSelect.value)});
+    } 
+    //initiate the function once the html is loaded //
+    initThemeSelector();
+    
+    //input validation//
+    
+    const form = document.getElementById('form');
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
+    const issues = document.getElementById('issues');
+    const subject= document.getElementById('subject');
+    
+    //adding event listner to avoid the submitting the form by default//
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        //first intitiating the input validation//
+        checkInputs();
+        //executed only if the inputs are filled and then moving to the next action//
+        confirmInputs();
+    });
+    
+    function checkInputs(){
+        ///getting info from inputs
+        const nameValue = name.value.trim();
+        const emailValue = email.value.trim();
+//        const numberValue = number.value.trim();
+        const issuesValue = issues.value.trim();
+        
+        //using if condition to check if the inputs are emptyor no.if its empty executes error fucntion or else executes succss function//
+        if(nameValue == ''){
+            setError(name,'Please fill in your name');
+            valid = false;
+        } else{
+            setSuccess(name);
+            valid = true;
+        }
+        
+        if (emailValue == ''){
+            setError(email,'Please fill in your valid email address');
+            valid = false;
+        }else if(!validEmail(emailValue)){
+            setError(email,'Email is not valid');
+            valid = false;
+                  
+        }else{
+            setSuccess(email);
+            valid = true;
+        }
+        
+        if(issuesValue == ''){
+            setError(issues,'Please type your query');
+            valid = false;
+        } else{
+            setSuccess(issues);
+            valid = true;
+        }
+        
+    }
+    //checking if all inputs are valid
+    function confirmInputs(){
+        if(valid==true){
+            //opening the confirm form using the class name and display visibility attribute//
+            document.getElementsByClassName('container')[0].className = 'container hide';
+            document.getElementsByClassName('formConfirmation')[0].className = 'formConfirmation open';
+            setConfirmInputs();
+        }
+    }
+    //hiding the query form using css class name and attribute visibility//
+    function getForm(){
+        document.getElementsByClassName('container hide')[0].className = 'container';
+        document.getElementsByClassName('formConfirmation open')[0].className = 'formConfirmation';
+    }
+    //getting form details and setting it to the confirm form labels//
+    function setConfirmInputs(){
+        document.getElementById('confirmName').innerHTML = name.value.trim();
+        document.getElementById('confirmEmail').innerHTML = email.value.trim();
+        document.getElementById('confirmSubject').innerHTML = subject.value;
+        document.getElementById('confirmQuery').innerHTML = issues.value.trim();
+    }
+    //rror function to display the empty field warning
+    function setError(input,message){
+        const column = input.parentElement; //.column div
+        const small = column.querySelector('small');
+        
+        //add error message inside small
+        small.innerHTML = message;
+        
+        //add error to column class to trigger column error css code
+        column.className = 'column error';
+    }
+    // function used to check the validity of the email 
+    function validEmail(email){
+        return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email);
+    }
+        
+    //success function to set a green border color by changing the css class name to show the user that field is valid//
+    function setSuccess(input){
+        const column = input.parentElement;
+        //add success to column class to trigger column success css code
+        column.className = 'column success';
+    }
+</script>
+    
+</body>
+</html>

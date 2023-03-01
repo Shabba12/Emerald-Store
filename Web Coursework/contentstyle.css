@@ -1,0 +1,112 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    height: 100vh;
+}
+
+                               /*header section*/
+.header{
+    border-bottom-style: outset;
+}
+/*  nav bar codes  */
+nav{
+    display: flex;
+    width: 100%;
+    position: relative;
+    text-align:center;
+    justify-content: space-around;
+    padding: 25px 0px; 
+    background-color: black; 
+}
+nav .logo{
+    font-size: 35px;
+    font-weight: 800;
+    color: whitesmoke;
+    cursor: pointer;
+}
+nav ul{
+    display: flex;
+    list-style: none;
+    margin: auto 0px;
+}
+nav ul li{
+    margin: 0px 2px;
+}
+nav ul li a{
+    color: whitesmoke;
+    font-size: 15px;
+    text-decoration: none;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    padding: 5px 10px;
+    transition-duration: 0.4s;
+}
+nav ul li a:hover{
+    background-color: whitesmoke;
+    color: orangered;
+    border-radius: 5px;
+    
+}
+nav .search_box{
+    position: relative;
+    left: 10px;
+    display: flex;
+    margin: auto 0px;
+    height: 30px;
+    line-height: 35px;
+}
+nav .search_box input{
+    border: none;
+    outline: none;
+    height: 30px;
+    background: whitesmoke;
+    padding-left: 10px;
+    font-size: 13px;
+    width: 250px;
+    border-radius: 5px;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+    
+}
+nav .search_box span{
+    color: whitesmoke;
+    background-color: orangered;
+    font-size: 20px;
+    padding: 6px 8px 8px 8px;
+    cursor: pointer;
+    border-radius: 0px 5px 5px 0px;
+    transition-duration: 0.4s;
+    
+    
+}
+nav .search_box span:hover{
+    color: black;
+    background-color: whitesmoke;
+    border: 2px solid black;
+}
+
+                                         /*end of header section*/
+
+                                        /*content section*/
+.content{
+    height: 100vh;
+    background-image: url(Style-2images/background-image.jpg);
+    background-position:center;
+    background-size: cover;
+}
+.content .title{
+    color: black;
+    padding: 40px;
+    text-align: center;    
+    background-color: ghostwhite;
+    opacity: 80%;
+    border-radius: 15px;
+    position: relative;
+    margin: auto;
+    top: 50px;
+    width: 70%;
+}
+.content .title h2

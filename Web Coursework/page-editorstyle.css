@@ -1,0 +1,38 @@
+body{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 12px;
+}
+
+.container{
+    background-image: url(Style-2images/background-image.jpg);
+    background-position:center;
+    background-size: cover;
+}
+.container .small-container{
+    background-color: ghostwhite;
+    opacity: 90%;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    border-radius: 10px;
+    position: relative;
+}
+.container .small-container .page-editor-img img{
+    border-radius: 20px;
+    margin-top: 20px;
+    border: 2px solid orangered;
+    opacity: 100%
+}
+.container .small-container .editor-details{
+    position: relative;
+    right: 150px;
+}
+.task-details{
+    position: relative;
+    bottom: 90px;
+    left: 110px;
+}

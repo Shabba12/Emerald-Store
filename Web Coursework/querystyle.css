@@ -1,0 +1,313 @@
+*,
+*:before,
+*:after{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    height: 100vh;
+    background-image: url(Style-2images/background-image.jpg);
+}                 
+
+
+
+
+                                        /*start of header box*/
+.header{
+    border-bottom-style: outset;
+}
+/*  nav bar codes  */
+nav{
+    display: flex;
+    width: 100%;
+    position: relative;
+    text-align:center;
+    justify-content: space-around;
+    padding: 25px 0px; 
+    background-color: black; 
+}
+nav .logo{
+    font-size: 35px;
+    font-weight: 800;
+    color: whitesmoke;
+    cursor: pointer;
+}
+nav ul{
+    display: flex;
+    list-style: none;
+    margin: auto 0px;
+}
+nav ul li{
+    margin: 0px 2px;
+}
+nav ul li a{
+    color: whitesmoke;
+    font-size: 15px;
+    text-decoration: none;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    padding: 5px 10px;
+    transition-duration: 0.4s;
+}
+nav ul li a:hover{
+    background-color: whitesmoke;
+    color: orangered;
+    border-radius: 5px;
+    
+}
+nav .search_box{
+    position: relative;
+    left: 10px;
+    display: flex;
+    margin: auto 0px;
+    height: 30px;
+    line-height: 35px;
+}
+nav .search_box input{
+    border: none;
+    outline: none;
+    height: 30px;
+    background: whitesmoke;
+    padding-left: 10px;
+    font-size: 13px;
+    width: 250px;
+    border-radius: 5px;
+    border-bottom-right-radius: 0px;
+    border-top-right-radius: 0px;
+    
+}
+nav .search_box span{
+    color: whitesmoke;
+    background-color: orangered;
+    font-size: 20px;
+    padding: 6px 8px 8px 8px;
+    position: relative;
+    top: 5px;
+    cursor: pointer;
+    border-radius: 0px 5px 5px 0px;
+    transition-duration: 0.4s;
+    
+    
+}
+nav .search_box span:hover{
+    color: black;
+    background-color: whitesmoke;
+    border: 2px solid black;
+}
+
+                                 /*end of header styling*/
+
+
+                            /*form section*/
+
+
+.container{
+    margin-top: 20px;
+    background-color: var(--primary-background-color);
+    width: 70%;
+    padding: 35px 50px 40px 50px;
+    min-width: 420px;
+    transform: translate(-50%,-50%);
+    position: relative;
+    top: 50%;
+    left: 50%;
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px black;
+    opacity: 80%;
+    color: var(--primary-text-color);
+    
+    
+}
+h1{
+    font-size: 30px;
+    text-align: center;
+
+}
+p{
+    position: relative;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    font-size: 15px;
+}
+.container.hide{
+    visibility: hidden;
+}
+form{
+    width: 100%;
+    position: relative;
+    margin: 30px auto 0 auto;
+    
+}
+.row{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    grid-gap: 20px 30px;
+    margin-bottom: 20px;
+}
+
+/*shows the warning*/
+
+.column small{
+    visibility: hidden;   
+}
+
+/*triggers when input is empty*/
+
+.column.error input{
+    border: 2px solid red;
+}
+.column.error textarea{
+    border: 2px solid red;
+}
+
+/*warning an empty feild*/
+
+.column.error small{
+    visibility: visible;
+    font-size: 10px;
+    color: red;
+    font-weight: 500;
+}
+
+/*triggers when input is valid*/
+
+.column.success input{
+    border: 2px solid #90EE90;
+}
+.column.success textarea{
+    border: 2px solid #90EE90;
+}
+
+label{
+    font-size: 16px;
+    font-weight: 600;
+    
+}
+textarea,
+input{
+    width: 100%;
+    font-weight: 400;
+    padding: 8px 10px;
+    border-radius: 5px;
+    border: 1.8px solid grey;
+    margin-top: 5px;
+}
+textarea{
+    resize: none;
+}
+textarea:focus,
+input:focus{
+    outline: none;
+    border-color: coral;
+}
+select{
+    width: 100%;
+    height: 39px;
+    border: 1.8px solid grey;
+    border-radius: 5px;
+    margin-top: 7px;
+}
+button{
+    border: none;
+    padding: 10px 20px;
+    background: orangered;
+    cursor: pointer;
+    color: ghostwhite;
+    font-weight: 700;
+    border-radius: 3px;
+    position: relative;
+    left: 35%;
+    width: 200px;
+}
+button:hover{
+    transition-duration: 0.4s;
+    background-color: slategrey;
+}
+
+                                        /*end of form styling*/
+
+                                      /*theme selector styling*/
+
+
+.themes{
+    text-align: left;
+    position: relative;
+    top: 10px;
+}
+.themes select{
+    width: 60px;
+    height: 20px;
+    font-size: 10px;
+    background-color: var(--primary-select-color);
+    border-style: none;
+}
+
+                                 /*end of of theme selector styling*/
+
+                                        /*confirmation box*/
+
+.formConfirmation{
+    margin-top: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background-color: var(--primary-background-color);
+    border-radius: 10px;
+    box-shadow: 10px 10px 15px black;
+    opacity: 80%;
+    color: var(--primary-text-color);
+    width: 60%;
+    padding: 35px 50px 40px 50px;
+    min-width: 420px;
+    transform: translate(-50%,-50%);
+    visibility: hidden;
+}
+
+/*triggers only when inputs are valid*/
+
+.formConfirmation.open{
+    visibility: visible;
+}
+
+.formConfirmation h1{
+    margin-bottom: 50px;
+}
+.formConfirmation.btn button{
+    margin: 20px; 
+}
+.formConfirmation h3{
+    width: 100px;
+}
+.formConfirmation label{
+    font-size: 18px;
+    font-weight: bold;
+    position: relative;
+    left: 120px;
+    margin: 5px;
+    bottom: 30px;
+    width: 100px;
+}
+.formConfirmation p{
+    width: 80%;
+    position: relative;
+    bottom: 25px;
+    font-weight: bold; 
+    left: 50px;
+}
+
+                                     /*end of confirmation boc styling*/
+.footer .editor-page a{
+    color: ghostwhite;
+    text-decoration: none;
+    text-align: right;
+    font-size: 12px;
+    transition-duration: 0.4s;
+}
+.footer .editor-page a:hover{
+    text-decoration: underline 2px orangered;
+}
+
